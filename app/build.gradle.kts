@@ -2,6 +2,8 @@ plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.android)
   alias(libs.plugins.kotlin.compose)
+
+  id("com.google.devtools.ksp")
 }
 
 android {
@@ -34,6 +36,11 @@ android {
   buildFeatures {
     compose = true
   }
+  packaging {
+    resources {
+      pickFirsts.add("META-INF/versions/9/OSGI-INF/MANIFEST.MF")
+    }
+  }
 }
 
 dependencies {
@@ -46,7 +53,22 @@ dependencies {
   implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.ui.tooling.preview)
   implementation(libs.androidx.material3)
-  testImplementation(libs.junit)
+  implementation(libs.androidx.room.common)
+  implementation(libs.androidx.room.ktx)
+  implementation(libs.androidx.room.runtime)
+  implementation(libs.androidx.material3.adaptive.navigation.suite)
+  implementation(libs.androidx.datastore.core.android)
+  implementation(libs.androidx.datastore.preferences)
+  implementation(libs.androidx.lifecycle.livedata.ktx)
+  implementation(libs.play.services.location)
+  implementation(libs.android)
+  implementation(libs.maps.compose)
+  implementation(libs.mapbox.sdk.turf)
+  implementation(libs.vico.compose)
+  implementation(libs.vico.compose.m3)
+  implementation(libs.identity.jvm)
+  testImplementation(libs.junit.junit)
+  ksp(libs.androidx.room.compiler)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
   androidTestImplementation(platform(libs.androidx.compose.bom))

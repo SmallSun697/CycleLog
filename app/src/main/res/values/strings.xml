@@ -1,3 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CycleLog</string>
+    <string name="mapbox_access_token" translatable="false" tools:ignore="UnusedResources">pk.eyJ1Ijoic21hbGxzdW42OTciLCJhIjoiY205ZWVkZ2hkMHB4czJqb25xY3d6b3R3ayJ9.9Pzj8cOvWpap2RtdG9aCNg</string>
 </resources>
